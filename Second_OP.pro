@@ -15,9 +15,9 @@ SOURCES += \
     source/entry.c
 
 HEADERS += \
-    include/widget.h \
     include/logic.h \
-    include/entry.h
+    include/entry.h \
+    include/widget.hpp
 
 INCLUDEPATH += include
 
