@@ -5,14 +5,14 @@
 class Widget : public QWidget {
     Q_OBJECT
 private:
-    QTableWidget *dataTable;
-
     QPushButton *loadButton;
     QPushButton *calculateButton;
 
-    QLabel *minimumValue;
-    QLabel *maximumValue;
-    QLabel *medianValue;
+    QTableWidget *dataTable;
+
+    QLineEdit *medianValue;
+    QLineEdit *minimumValue;
+    QLineEdit *maximumValue;
 public:
     Widget(QWidget *parent = nullptr);
 

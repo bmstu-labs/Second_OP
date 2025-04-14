@@ -8,9 +8,11 @@ Widget::Widget(QWidget *parent) : QWidget(parent) {
 void Widget::setupWidgets() {
     // Buttons
     loadButton = new QPushButton("Load Data");
+    loadButton->setFixedHeight(50);
     calculateButton = new QPushButton("Calculate Metrics");
+    calculateButton->setFixedHeight(50);
 
-    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    QVBoxLayout *buttonLayout = new QVBoxLayout;
     buttonLayout->addWidget(loadButton);
     buttonLayout->addWidget(calculateButton);
     buttonLayout->addStretch();
@@ -24,21 +26,35 @@ void Widget::setupWidgets() {
     dataTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     dataTable->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    // Metric labels
-    medianValue = new QLabel("Median: -");
-    minimumValue = new QLabel("Minimum: -");
-    maximumValue = new QLabel("Maximum: -");
+    // Metric input lines (copyable)
+    medianValue = new QLineEdit;
+    medianValue->setReadOnly(true);
+    medianValue->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
+    minimumValue = new QLineEdit;
+    minimumValue->setReadOnly(true);
+    minimumValue->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
+    maximumValue = new QLineEdit;
+    maximumValue->setReadOnly(true);
+    maximumValue->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
+    // Metrics layout using QFormLayout for alignment
+    QFormLayout *metricsLayout = new QFormLayout;
+    metricsLayout->setLabelAlignment(Qt::AlignRight);
+    metricsLayout->addRow("Median:", medianValue);
+    metricsLayout->addRow("Minimum:", minimumValue);
+    metricsLayout->addRow("Maximum:", maximumValue);
+
+    // Right-side control panel
     QVBoxLayout *rightControlPanel = new QVBoxLayout;
-    rightControlPanel->addWidget(medianValue);
-    rightControlPanel->addWidget(minimumValue);
-    rightControlPanel->addWidget(maximumValue);
-    rightControlPanel->addLayout(buttonLayout);
+    rightControlPanel->addLayout(metricsLayout);
     rightControlPanel->addStretch();
+    rightControlPanel->addLayout(buttonLayout);
 
     // Main layout
     QHBoxLayout *contentLayout = new QHBoxLayout;
-    contentLayout->addWidget(dataTable, 3);           // 3:1 ratio for space
+    contentLayout->addWidget(dataTable, 2);
     contentLayout->addLayout(rightControlPanel, 1);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -46,7 +62,7 @@ void Widget::setupWidgets() {
 
     this->setLayout(mainLayout);
     this->setWindowTitle("CSV Metrics Viewer");
-    this->setFixedSize(800, 500);
+    this->setMinimumSize(800, 500);
 }
 
 
