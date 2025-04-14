@@ -16,6 +16,8 @@ private:
 public:
     Widget(QWidget *parent = nullptr);
 
+    // Alle Widgets sind in einem Box Layout gepackt
+    // Brauch sie nicht im Destruktor freigeben
     ~Widget() = default;
 public:
     void setupWidgets();
