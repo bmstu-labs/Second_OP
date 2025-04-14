@@ -10,13 +10,17 @@ CONFIG += c++17
 
 SOURCES += \
     source/main.cpp \
+    source/utils.c \
     source/widget.cpp \
     source/logic.c \
     source/entry.c
 
 HEADERS += \
+    include/context.h \
+    include/errors.h \
     include/logic.h \
     include/entry.h \
+    include/utils.h \
     include/widget.hpp
 
 INCLUDEPATH += include
