@@ -17,5 +17,20 @@ void context_init(Context *context) {
     // init error type (name)
     context->error_name = NO_ERRORS;
 
+    // Metric init
     context->metric = 0;
+}
+
+void get_error_message(Context *context) {
+    switch (context->error_name) {
+    case NO_ERRORS:
+        context->error_message = "No errors";
+        break;
+    case MEMORY_ALLOCATION_ERROR:
+        context->error_message = "Memory allocation error";
+        break;
+    default:
+        context->error_message = "Unknown error";
+        break;
+    }
 }

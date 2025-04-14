@@ -8,7 +8,6 @@ typedef struct {
     char *column_name;
     char *file_name;
     int metric;
-
     Error error_name;
     char *error_message;
 } Context;
