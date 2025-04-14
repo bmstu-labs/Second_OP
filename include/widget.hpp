@@ -7,9 +7,7 @@ class Widget : public QWidget {
 private:
     QPushButton *loadButton;
     QPushButton *calculateButton;
-
     QTableWidget *dataTable;
-
     QLineEdit *medianValue;
     QLineEdit *minimumValue;
     QLineEdit *maximumValue;

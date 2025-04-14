@@ -1,5 +1,6 @@
+#include "utils.h"
+
 #include <stdlib.h>
-#include "errors.h"
 
 #define MAX_NAME_LENGTH 256
 
@@ -15,3 +16,4 @@ Error allocate_empty_string(char **str) {
 
     return result;
 }
+
