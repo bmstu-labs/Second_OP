@@ -17,6 +17,7 @@ SOURCES += \
 
 HEADERS += \
     include/context.h \
+    include/data_list.h \
     include/errors.h \
     include/logic.h \
     include/entry.h \

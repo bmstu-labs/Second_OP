@@ -3,10 +3,17 @@
 #include "context.h"
 
 typedef enum {
-    CALCULATE_MEDIAN,
-    CALCULATE_MINIMUM,
-    CALCULATE_MAXIMUM,
-    OPEN_FILE
+    LOAD_DATA,
+    CONTEXT_INIT,
+    CALCULATE_METRICS
 } Operation;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void execute(Operation, Context *);
+
+#ifdef __cplusplus
+}
+#endif

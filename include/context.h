@@ -2,12 +2,33 @@
 
 #include "errors.h"
 
-#define MAX_NAME_LENGTH 256
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef struct {
-    char *column_name;
-    char *file_name;
-    int metric;
-    Error error_name;
-    char *error_message;
+    // Data
+    void *data;
+
+    // Operation params
+    char *file_path;
+    char *region_filter;
+    int target_column;
+
+    // Operation results
+    double median;
+    double min;
+    double max;
+
+    // Load stats
+    int total_rows;
+    int valid_rows;
+    int error_rows;
+
+    // Errors
+    ErrorInfo error;
 } Context;
+
+#ifdef __cplusplus
+}
+#endif

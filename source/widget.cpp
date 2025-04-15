@@ -1,6 +1,10 @@
 #include "widget.hpp"
+#include "entry.h"
 
 Widget::Widget(QWidget *parent) : QWidget(parent) {
+    // Setup context
+    execute(CONTEXT_INIT, &this->context);
+
     // Setup all widgets
     this->setupWidgets();
 }

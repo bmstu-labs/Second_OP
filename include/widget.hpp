@@ -1,10 +1,13 @@
 #pragma once
 
 #include <QtWidgets>
+#include "context.h"
 
 class Widget : public QWidget {
     Q_OBJECT
 private:
+    Context context;
+
     QPushButton *loadButton;
     QPushButton *calculateButton;
     QTableWidget *dataTable;
@@ -14,8 +17,8 @@ private:
 public:
     Widget(QWidget *parent = nullptr);
 
-    // Alle Widgets sind in einem Box Layout gepackt
-    // Brauch sie nicht im Destruktor freigeben
+    // Do not need to deallocating memory after the widgets
+    // Because they are stored in BoxLayouts
     ~Widget() = default;
 public:
     void setupWidgets();
